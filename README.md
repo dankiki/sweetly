@@ -1,0 +1,2 @@
+# sweetly
+a url shortener
