@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  redis:
+    image: "redis:5.0-alpine"
+    ports:
+      - 6379:6379
+    restart: always
+
+  redis-cli:
+    image: "redis:5.0-alpine"
+    ports:
+      - 6000:6000
+    command:
+      redis-cli -h redis -p 6379 SETNX last_entry 0
+
+  web:
+    build: .
+    command: python manage.py runserver_plus 0.0.0.0:8000
+    container_name: sweetly
+    volumes:
+      - .:/sweetly
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_HOST=redis

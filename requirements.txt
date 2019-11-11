@@ -1,0 +1,9 @@
+django
+django-debug-toolbar
+django-extensions
+djangorestframework
+flake8
+ipython
+pytest-django
+redis
+werkzeug
