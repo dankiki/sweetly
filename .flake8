@@ -1,3 +1,4 @@
 [flake8]
 exclude = requirements.txt,
-          venv
+          venv,
+          README.md
